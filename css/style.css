@@ -1,0 +1,113 @@
+
+
+/* ===== Primary Styles ========================================================
+   Author: Xavier Fornés
+   ========================================================================== */
+
+.navbar .nav .active > h1 {
+  color: black;
+  background-color: #fdd84c;
+  line-height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.navbar .dropdown .caret {
+  margin-top: 24px;
+}
+.navbar .nav > li > a {
+  color: #fdd84c;
+  text-decoration: none;
+}
+.container .newspaper {
+  background-color: white;
+  padding-right: 30px;
+  padding-top: 15px;
+}
+.newspaper [class*="span"] {
+  margin-left: 15px;
+}
+.clear-left {
+  clear: left;
+}
+.left {
+  float: left;
+}
+p img.left {
+  margin-right: 20px;
+}
+.right {
+  float: right;
+}
+p img.right {
+  margin-left: 20px;
+}
+
+.navbar .nav > li > a {
+  line-height: 50px;
+}
+.row+.row {
+  margin-top: 30px;
+}
+.row ul.facts li {
+  font-style: italic;
+}
+.banner {
+  min-width: 250px; 
+  min-height: 250px;
+  margin-bottom: 10px;
+}
+.carousel {
+  margin-bottom: 0px;
+}
+#stig-facts-carousel {
+  min-height: 105px;
+}
+#stig-facts-carousel .carousel-control {
+  top: 26px;
+  width: 20px;
+  height: 20px;
+  font-size: 30px;
+  line-height: 15px;
+}
+#stig-facts-carousel .carousel-control.left {
+  left: -26px;
+}
+#stig-facts-carousel .carousel-control.right {
+  right: -26px;
+}
+
+form .help-block ul li,
+form .help-inline ul li {
+  list-style: none;
+}
+
+footer .copyright {
+    /*float: right;
+    clear: right;
+    margin: auto 60px auto auto;*/
+}
+
+footer .copyright img {
+  position: relative;
+  top: -19px;
+  height: 45px;
+}
+
+footer .sharethis {
+  float: left;
+}
+
+.stig-wishes-container {
+  background: url('/img/the-stig-wants-to-say.jpg') top center no-repeat; 
+  width: 600px; 
+  height: 450px; 
+  color: white;
+}
+
+.stig-wishes-container h1 {
+  margin-left: 230px; 
+  text-align: center; 
+  padding-top: 140px;
+}
+
+

@@ -1,0 +1,69 @@
+{% extends "layout.html.twig" %}
+
+{% block meta_title %}{% trans %}Tú también puedes ser Stig{% endtrans %}{% endblock %}
+{% block meta_description %}{% trans %}Crea tu propia página -Yo soy Stig- con este generador de noticias{% endtrans %}{% endblock %}
+{% block og_title %}{% trans %}Tú también puedes ser Stig{% endtrans %}{% endblock %}
+{% block og_description %}{% trans %}Crea tu propia página -Yo soy Stig- con este generador de noticias{% endtrans %}{% endblock %}
+
+{% block content %}
+	<h1>{% trans %}Tú también puedes ser Stig{% endtrans %}</h1>
+{% if url is not empty %}
+	<div>
+		<p>{% trans %}Comparte esta dirección con quién y dónde tú quieras, y siéntete orgulloso de ser Stig!{% endtrans %}</p>
+		<div class="alert alert-success">
+			<b><a target="_blank" href="{{ url }}" title="I am the Stig">{{ url }}</a></b>
+		</div>		
+		<div>
+			{% set st_title = '%name% es el nuevo Stig' | trans({ '%name%': someone}) %}
+			{% set st_url = url %}
+			{% set st_summary = 'Recientemente se ha descubierto la identidad del nuevo Stig, el hasta ahora de identidad desconocida y domador de coches oficial de Top Gear, su nombre es %name%' | trans({ '%name%': someone}) %}
+			{% set st_image = 'http://' ~ app.request.host ~ '/img/i-am-the-stig.png' %}
+			<span class='st_sharethis_large' displayText='ShareThis' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_facebook_large' displayText='Facebook' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_twitter_large' displayText='Tweet' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_pinterest_large' displayText='Pinterest' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_googleplus_large' displayText='Google +' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_linkedin_large' displayText='LinkedIn' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_tumblr_large' displayText='Tumblr' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_google_bmarks_large' displayText='Bookmarks' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+			<span class='st_email_large' displayText='Email' st_url="{{st_url}}" st_title="{{st_title}}" st_image="{{st_image}}" st_summary="{{st_summary}}"></span>
+		</div>
+	</div>
+{% else %}
+	<div>
+		<form action="{{ path('whoIsTheStig') }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
+			{{ form_errors(form) }}
+			{{ form_widget(form._token) }}
+			<fieldset>
+				<legend>{% trans %}Simplemente dínos quién quieres que sea Stig y generaremos una web con noticias para que la puedas compartir con tus amigos y familiares.{% endtrans %}</legend>
+				<div class="control-group {{ ( form.name.vars.errors | length > 0 ? 'error': '') }}">
+					{{ form_label(form.name, null, { 'label': 'Nombre', 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+						{{ form_widget(form.name, { 'attr': {'class': 'input-xlarge'} }) }}
+						{% set link_example = '<a href="%s" target="_blank" title="Michael Schumacher is The Stig">Michael Schumacher</a>' | format (url_example) %}
+						<span class="help-inline">
+							{{ 'Por ejemplo: %link%' | trans({'%link%': link_example}) | raw }}
+						</span>
+                		{% if form.name.vars.errors | length > 0 %}
+							<div class="help-block">{{ form_errors(form.name) }}</div>
+						{% endif %}
+
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">{% trans %}Generar periódico{% endtrans %}</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+{% endif %}
+{% endblock %}
+
+
+{% block share_page %}
+	{% if url is empty %}
+		{% set st_title = 'Tú también puedes ser Stig' | trans %}
+		{% set st_summary = 'Crea tu propia página Yo soy Stig con este generador de noticias' | trans %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}

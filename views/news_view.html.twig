@@ -1,0 +1,256 @@
+{% extends "layout.html.twig" %}
+
+{% block meta_title %}{{ someone ~ ' es el nuevo Stig' }}{% endblock %}
+{% block meta_description %}{{ 'Recientemente se ha descubierto la identidad del nuevo Stig, el hasta ahora de identidad desconocida y domador de coches oficial de Top Gear, su nombre es ' ~  someone }}{% endblock %}
+
+{% block og_title %}{{ someone ~ ' es el nuevo Stig' }}{% endblock %}
+{% block og_description %}{{ 'Recientemente se ha descubierto la identidad del nuevo Stig, el hasta ahora de identidad desconocida y domador de coches oficial de Top Gear, su nombre es ' ~  someone }}{% endblock %}
+
+{% block share_page %}
+	{% set st_title = someone ~ ' es el nuevo Stig' %}
+	{% set st_url = app.request.uri %}
+	{% set st_summary = 'Recientemente se ha descubierto la identidad del nuevo Stig, el hasta ahora de identidad desconocida y domador de coches oficial de Top Gear, su nombre es ' ~  someone %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="span5 left">
+		<img class="right" src="/img/top-gear-the-stig-reveals-on-video.jpg" alt="Stig reveals his identity!" />
+		<h1>{{ someone }} es el domador de coches de Top Gear: Stig</h1>
+		<p>Según investigaciones a raíz de un descuido en la cuenta de Twitter de uno de los productores de Top Gear, apuntan a que el último Stig aparecido en el programa es realmente <b>{{ someone }}</b>.</p>
+	</div>
+	<div class="span3 right">
+		<div class="banner">
+			{% include '_banner.html.twig' %}
+		</div>
+	</div>
+	<div class="span2 left">
+		<h2>El último Stig</h2>
+	   	<p>
+	   		<img class="left" src="/img/jeremy-hamond-may-stig.png" alt="Jeremy Clarkson, Richard Hamon, James May, The Stig" />
+	   		Desde que empezó TOP GEAR han pasado varios Stigs por el programa.
+	   	</p>
+	   	<p>El primer Stig que vestía de negro hasta que se ahogó terriblemente intentando coger un barco.</p>
+	   	<a data-toggle="modal" href="#last-stig-full-news" class="btn btn-mini btn-primary" title="Leer"><span class="icon-eye-open"></span>&nbsp;Leer &gt;</a>
+	</div>
+	<div class="span3 left">
+		<h2>¿Quién es Stig?</h2>
+	   	<p>
+	   		<img class="right" src="/img/who-is-the-stig.png" alt="Who is The Stig?" width="150" />
+	   		Desde que apareció este personaje el 2002 se ha especulado quién podía ser.
+	   	</p>
+	   	<p>
+	   		<i>Hay quien dice que después de hacer el amor, Stig le arranca la cabeza de un bocado a su pareja, a lo mantis religiosa</i>
+	   	</p>
+	   	<a data-toggle="modal" href="#who-is-the-stig-full-news" class="btn btn-mini btn-primary" title="Leer"><span class="icon-eye-open"></span>&nbsp;Leer &gt;</a>
+	</div>
+	<div class="span3 right">
+		<h2>Yo soy the Stig</h2>
+		<p>¿Eres tú el verdadero Stig?</p>
+		<p><b>¡Reclama tu identidad!</b></p>
+		<a class="btn btn-mini btn-danger" href="{{ path('whoIsTheStig') }}" title="Publicar noticia"><span class="icon-share"></span>&nbsp;Publicar noticia</a>
+	</div>
+	<div class="span3 right">
+		<h2>Stig's facts</h2>
+	  	<div id="stig-facts-carousel" class="carousel slide">
+			<a class="carousel-control left hidden" href="#stig-facts-carousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right hidden" href="#stig-facts-carousel" data-slide="next">&rsaquo;</a>		   		
+	   		<ul class="facts carousel-inner unstyled">
+		   			<li class="item active">Hay quien dice que después de hacer el amor, le arranca la cabeza de un bocado a su pareja, a lo mantis religiosa.</li>
+		   			<li class="item">También se dice que ha tenido que dejar de emborracharse de lo cara que está la bebida.</li>
+		   			<li class="item">Otros dicen que las uñas de sus pies tienen la misma forma que pezones de mujer, y que él piensa que "credit-cruch" (la crisis de los créditos basura) es un tipo de cereal de desayuno.</li>
+		   			<li class="item">También se comenta que sus excrementos se han encontrado incluso al norte de York, y que tiene un enorme tatuaje de su cara, en su cara.</li>
+		   			<li class="item">Se dice también que no le está permitido por ley estar a menos de 100 metros de Lorraine Kelly, y que nunca a visto un episodio de Top Gear, porque es un gran fan de otra serie inglesa llamada Midsomer Murders, que se emite a la misma hora.</li>
+		   			<li class="item">También se dice que le es imposible llevar calcetines, y que puede abrir botellas de cerveza con los testículos.</li>
+		   			<li class="item">Dicen que su sudor puede utilizarse para limpiar metales preciosos, y que su piel tiene la textura de la de los delfines.</li>
+		   			<li class="item">Afirman incluso que si sintonizas una radio en el 88.4 FM puedes oír sus pensamientos, y que no ve como las personas, si no que solo ve números en verde cayendo (como en Matrix).</li>
+		   			<li class="item">Dicen que no entiende las nubes, y que se confunde con las escaleras.</li>
+		   			<li class="item">También se dice que por naturaleza siempre apunta al polo norte magnético, y que está prohibido en 17 estados de los EE.UU., donde es perseguido por la CIA, porque Jimmy Carter lo quiere muerto.</li>
+		   			<li class="item">Algunos comentan que el latir de su corazón es como el de un reloj por su exactitud, que todas sus piernas son hidráulicas; además tiene un brazo biónico, y su cara es digital.</li>
+		   			<li class="item">Otros dicen que su aliento huele a magnesio, sus lágrimas son adhesivas, y puede coger peces con la lengua.</li>
+		   			<li class="item">También see cree que si se prendiera fuego, ardería durante cien días, y que tiene dos juegos de rodillas.</li>
+		   			<li class="item">Con respecto a los animales, dicen que su voz solo la puede oír los gatos, y que le aterrorizan los patos.</li>
+		   			<li class="item">Hay quien incluso afirma que su corazón y sus genitales está boca abajo, que sus dientes brillan en la oscuridad, y que tiene ácido en lugar de sangre.</li>
+		   			<li class="item">Se dice de él que el asfalto se funde cuando lo toca, y que no tiene raja del culo.</li>
+		   			<li class="item">Se comenta de él que ha puesto nombre a todas y cada una de las briznas de hierba del césped que rodea la pista de pruebas de Top Gear, y que si le importara, descifraría el código Da Vinci en 43 segundos.</li>
+		   			<li class="item">Otros dicen que no se puede lavar a máquina, que su casco está modelado a partir de la cabeza de Britney Spears, y que su escroto tiene su propio campo gravitacional.</li>
+	   		</ul>
+	   	</div>
+	   	<p>
+	   		Lo único que es seguro es que se llama <b>Stig</b>.
+	   	</p>
+	  	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#stig-facts-carousel').carousel({
+					interval: 4000,
+					pause: 'hover',
+				});
+			});		  	
+	  	</script>
+	</div>
+	<div class="span3 left">
+		<h2>La historia de Stig</h2>
+		<p>Muchos han sido los Stig que han pasado por el programa desde 2002.</p>
+		<a data-toggle="modal" href="#stig-story-full-news" class="btn btn-mini btn-primary" title="Leer"><span class="icon-eye-open"></span>&nbsp;Leer &gt;</a>
+	</div>
+
+
+
+	<div class="modal hide fade" id="last-stig-full-news">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h3>El último Stig: {{ someone }}</h3>
+		</div>
+		<div class="modal-body">
+			<p>
+		   		<img class="right" src="/img/jeremy-hamond-may-stig.png" alt="Jeremy Clarkson, Richard Hamon, James May, The Stig"/>
+		   		Desde que empezó TOP GEAR han pasado varios Stigs por el programa. El Stig de negro, el primer Stig Blanco que luego se autodescubrió en su biografía como Ben Collins, y el segundo Stig Blanco crecido en una granja de Stigs y del que hasta ahora desconocíamos su identidad.
+		   	</p>
+		   	<p>
+		   		Y unos días atrás por fin descubrimos quién se esconde tras la identidad del actual Stig: "{{ someone }}".
+		   	</p>
+		   	<p>
+		   		Lamentablemente eso puede significar que en breve será despecido pues ningún Stig ha durado dos programas desde que se conoció su identidad. Desde la redacción le enviamos nuestro más sincero pésame.
+		   	</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+		</div>
+	</div>
+
+	<div class="modal hide fade" id="who-is-the-stig-full-news">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h3>Pero, ¿quién es Stig? El caso</h3>
+		</div>
+		<div class="modal-body">
+			<p>
+		   		<img class="right" src="/img/who-is-the-stig.png" alt="Who is The Stig?" width="150" />
+		   		Desde que apareció este personaje el 2002 se ha especulado quién podía ser. <i>Hay quien dice que después de hacer el amor, Stig le arranca la cabeza de un bocado a su pareja, a lo mantis religiosa</i>, y por ello se pensó que podía ser Michael Schumacher, aunque actualmente Michael está casado y su mujer sigue viva, por lo que parece que estos indicios son falsos.
+		   	</p>
+		   	<p>
+		   		A lo largo de esta última década se han avistado varios Stig en los lugares y ferias más recónditas. Es por ello que os damos unos consejos para que no os engañen con imitaciones:
+		   	</p>
+	   		<div id="accordion-questions" class="collapse in" style="height: auto;">
+	   			<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-questions" href="#collapseOne">
+							1.- ¿Es el sospechoso igual de alto que un niño pequeño?
+						</a>
+					</div>
+					<div id="collapseOne" class="accordion-body collapse in">
+						<div class="accordion-inner">
+							Si el sospechoso es aproximadamente igual de alto que un niño pequeño, es muy posible que no sea the Stig. The Stig no es tan bajito. A no ser que lo estés mirando desde muy muy lejos o que seas Pau Gasol.
+						</div>
+					</div>
+	   			</div>
+	   			<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-questions" href="#collapseTwo">
+							2.- ¿El mono que lleva el sospechoso es como el de the Stig?
+						</a>
+					</div>
+					<div id="collapseTwo" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Si el mono de carreras del sospechoso parece diferente del que lleva el auténtico, es muy posible que no sea the Stig. El mono de the Stig es muy parecido al que lleva the Stig.
+						</div>
+					</div>
+	   			</div>
+	   			<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-questions" href="#collapseThree">
+							3.- ¿Te lo has encontrado en una estación de servicio al noroeste de Inglaterra?
+						</a>
+					</div>
+					<div id="collapseThree" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Si te encuentras en una estación de servicio al noroeste de Inglaterra, tienes muchos números de que no te hayas encontrado a the Stig. The Stig raramente visita estaciones de servicios en esa zona del país. Hay quien dice que es por razones religiosas y otros dicen que es porque su GPS no tiene cobertura fuera de Londres.
+						</div>
+					</div>
+	   			</div>
+	   			<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-questions" href="#collapseFour">
+							4.- ¿Te echa para atrás el inconfundible olor a carne de caballo cruda y aceite de motor caliente?
+						</a>
+					</div>
+					<div id="collapseFour" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Si el sospechoso suda con el típico olor humano -sudor, chocolate, Axe Marine- es muy posible que no sea the Stig. El olor de the Stig es único, inolvidable y ligeramente desgarrador.
+						</div>
+					</div>
+	   			</div>
+	   			<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-questions" href="#collapseFive">
+							5.- ¿Te encuentras sobreexcitado y algo corto de espíritu crítico, quizás como resultado de un golpe de calor?
+						</a>
+					</div>
+					<div id="collapseFive" class="accordion-body collapse">
+						<div class="accordion-inner">
+							Si has pasado recientemente mucho tiempo al aire libre durante la última ola de calor, es posible que confundas a alguien que no se parece mucho a the Stig con el auténtico. Si éste es el caso, túmbate un rato en una habitación oscura.
+						</div>
+					</div>
+	   			</div>
+	   			&nbsp;
+	   		</div>
+		   	<script type="text/javascript">
+				$(document).ready(function(){
+					$("#accordion-questions").collapse({});
+					$('#who-is-the-stig-full-news').on('show', function () {
+  						$("#accordion-questions").height('auto');
+					})
+				});		  	
+		  	</script>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+		</div>
+	</div>
+
+	<div class="modal hide fade" id="stig-story-full-news">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h3>La historia de Stig</h3>
+		</div>
+		<div class="modal-body">
+			<div class="left">
+			  	<h4>El Stig de negro</h4>
+			   	<p>
+			   		<img class="left" src="/img/black-stig.jpg" alt="Black Stig" width="75" />
+			   		También conocido como Perry McCarthy, apareció el primer Stig vestido de negro allà el 2002 hasta finales del 2003. ¡Murió!
+			   	</p>
+			   	<p>Se comenta que su espíritu todavía ronda en las colas del INEM.</p>
+			</div>
+			<div class="left">
+			  	<h4>El primer Stig de blanco</h4>
+			   	<p>
+			   		<img class="left" src="/img/first-white-stig.jpg" alt="The First White Stig" width="75" />
+			   		Desde que Ben Collins publicó su autobiografía en 2010 podemos poner nuevamente rostro, esta vez al primer Stig con caso y mono blanco. El domador de coches por excelencia de Top Gear dejó el programa allá el 2010 tras siete años siendo el centro de hasta entonces llamado "Caso Stig". 
+			   	</p>
+			   	<p>
+			   		Se dice que uno de los productores le ofreció un vaso con agua y murió por gripar el motor.
+			   	</p>
+			</div>
+			<div class="left">
+			  	<h4>El actual Stig</h4>
+			   	<p>
+			   		<img class="left" src="/img/second-white-stig.jpg" alt="The Second White Stig" width="75" />
+			   		Tras el cese del Stig blanco apareció este nuevo Stig para probar los supercoches presentados en el programa. Nacido en una granja de Stigs, criado e instruido en tiempo record para empezar la temporada de Top Gear conservó el color blanco y de nuevo provocó reabrir el caso Stig: <b>¿Quién podría ser el Nuevo Stig?</b>
+			   	</p>
+			   	<p>¿Y cuánto durará vivo?</p>
+			</div>
+			<div class="left">
+			  	<h4>Los primos de Stig</h4>
+			   	<p>
+			   		<img class="left" src="/img/green-stig.jpg" alt="The Stig's counsins" width="75" />
+			   		El primo americano de Stig, el primo camionero de Stig, el primo vegetariano de Stig son alguno de los familiares que han llegado a pasar por el programa cuando se han probado coches fuera del Reino Unido. Ninguno de ellos a la altura de Stig. Hay quien dice que se escaparon demasiado pronto de la granja, o que Stig los envió a los diferentes países para conquistar la Tierra... pero lo que sí sabemos es que son familia de Stig.
+			   	</p>
+			</div>			
+		</div>		
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+		</div>
+	</div>
+{% endblock %}
+

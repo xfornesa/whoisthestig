@@ -1,0 +1,21 @@
+{% extends 'base_form_div_layout.html.twig' %}
+
+{#
+   Extends from Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig
+   Overrides the form_errors block so it no longer uses transchoice (which
+   was causing a problem).
+#}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <ul>
+        {% for error in errors %}
+            <li>{{
+                error.messageTemplate|trans(error.messageParameters, 'validators')
+            }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

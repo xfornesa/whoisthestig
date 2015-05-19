@@ -1,0 +1,60 @@
+{% extends "layout.html.twig" %}
+
+{% block meta_title %}Contacta con nosotros y mejora I amb the Stig{% endblock %}
+{% block meta_description %}Crea tu propia página 'Yo soy Stig' con este generador de noticias{% endblock %}
+
+{% block content %}
+	<h1>Contacta con nosotros</h1>
+	<div>
+		{% if app.session.hasFlash('success') %}
+		<div class="alert alert-success">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+			<h4 class="alert-heading">Consulta enviada satisfactoriamente</h4>
+			Hemos recibido tus comentarios e intentaremos responderte en breve. Gracias por tu colaboración.
+			<!--{{ app.session.flash('success') }}-->
+		</div>
+		{% endif %}
+		{% if app.session.hasFlash('error') %}
+		<div class="alert alert-error">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+			<h4 class="alert-heading">Hubo un error enviando la información</h4>
+			Hemos tenido problemas para enviar tu consulta, por favor usa el email <a href="mailto:feedback@isthestig.com?subject=[Feedback]%20I%20am%20The%20Stig">feedback@isthestig.com</a>
+			<!--{{ app.session.flash('error') }}-->
+		</div>
+		{% endif %}
+		<form action="{{ path('contact') }}" method="post" class="form-horizontal" {{ form_enctype(form) }}>
+			{{ form_errors(form) }}
+			{{ form_widget(form._token) }}
+			<fieldset>
+				<legend>Envíanos tus comentarios, dudas, mejoras o lo que quieras</legend>
+				<div class="control-group {{ ( form.name.vars.errors | length > 0 ? 'error': '') }}">
+					{{ form_label(form.name, null, { 'label': 'Nombre', 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+						{{ form_widget(form.name, { 'attr': {'class': 'input-xlarge'} }) }}
+						<span class="help-inline">{{ form_errors(form.name) }}</span>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group {{ ( form.email.vars.errors | length > 0 ? 'error': '') }}">
+					{{ form_label(form.email, null, { 'label': 'Email', 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+						{{ form_widget(form.email, { 'attr': {'class': 'input-xlarge'} }) }}
+						<span class="help-inline">{{ form_errors(form.email) }}</span>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group {{ ( form.comments.vars.errors | length > 0 ? 'error': '') }}">
+					{{ form_label(form.comments, null, { 'label': 'Commentarios', 'label_attr': {'class': 'control-label'} }) }}
+					<div class="controls">
+						{{ form_widget(form.comments, { 'attr': {'class': 'input-xlarge'} }) }}
+						<span class="help-inline">{{ form_errors(form.comments) }}</span>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+{% endblock %}
